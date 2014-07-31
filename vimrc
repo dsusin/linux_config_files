@@ -37,6 +37,11 @@ vmap Z :s/^\(\s*\)#/\1/gi<CR>
 map z :s/^/#/gi<CR>j
 map Z :s/^\(\s*\)#/\1/gi<CR>j
 
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 let loaded_matchparen = 1
 
 "set statusline=
