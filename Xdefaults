@@ -1,0 +1,10 @@
+urxvt*loginShell:true
+urxvt*transparent:true
+urxvt*shading:40
+urxvt*background:Black
+urxvt*foreground:White
+urxvt*scrollBar:false
+urxvt*saveLines:32767
+urxvt*font:-*-neep-medium-*-*-*-11-*-*-*-*-*-*-*
+urxvt*transparent: true
+urxvt*shading: 30
