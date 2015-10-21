@@ -5,7 +5,7 @@ autocmd BufReadPost *
 \ endif
 
 set t_Co=256
-colorscheme desert
+colorscheme elflord
 set hidden
 runtime macros/matchit.vim
 set directory=~/.vim/backup
@@ -42,6 +42,20 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+noremap <F8> :call HexMe()<CR>
+let $in_hex=0
+function HexMe()
+set binary
+set noeol
+if $in_hex>0
+:%!xxd -r
+let $in_hex=0
+else
+:%!xxd
+let $in_hex=1
+endif
+endfunction
+
 let loaded_matchparen = 1
 
 "set statusline=
@@ -65,8 +79,8 @@ let loaded_matchparen = 1
 "au InsertLeave * hi CursorLine cterm=underline ctermbg=none guibg=none
 "set cursorline
 
-hi CursorLine cterm=none ctermbg=black guibg=black
-au InsertEnter * hi CursorLine cterm=none ctermbg=none guibg=none
-au InsertLeave * hi CursorLine cterm=none ctermbg=black guibg=black
-set cursorline
+"hi CursorLine cterm=none ctermbg=black guibg=black
+"au InsertEnter * hi CursorLine cterm=none ctermbg=none guibg=none
+"au InsertLeave * hi CursorLine cterm=none ctermbg=black guibg=black
+"set cursorline
 
