@@ -1,3 +1,55 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" " alternatively, pass a path where Vundle should install plugins
+" "call vundle#begin('~/some/path/here')
+"
+" " let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+"
+" " The following are examples of different formats supported.
+" " Keep Plugin commands between vundle#begin/end.
+" " plugin on GitHub repo
+" Plugin 'tpope/vim-fugitive'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimfiler.vim'
+Plugin 'bling/vim-airline'
+" " plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" " Git plugin not hosted on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+" " git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" " The sparkup vim script is in a subdirectory of this repo called vim.
+" " Pass the path to set the runtimepath properly.
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" " Avoid a name conflict with L9
+" Plugin 'user/L9', {'name': 'newL9'}
+"
+" " All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" " To ignore plugin indent changes, instead use:
+" "filetype plugin on
+" "
+" " Brief help
+" " :PluginList       - lists configured plugins
+" " :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" " :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" " :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
+" "
+" " see :h vundle for more details or wiki for FAQ
+" " Put your non-Plugin stuff after this line
+
+autocmd VimEnter * if !argc() | VimFiler | endif
+let g:vimfiler_as_default_explorer = 1
+
 "abrir en la misma posicion
 autocmd BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -5,6 +57,7 @@ autocmd BufReadPost *
 \ endif
 
 set t_Co=256
+
 colorscheme elflord
 set hidden
 runtime macros/matchit.vim
@@ -58,29 +111,10 @@ endfunction
 
 let loaded_matchparen = 1
 
-"set statusline=
-"set statusline +=%1*\ %n\ %*            "buffer number
-"set statusline +=%5*%{&ff}%*            "file format
-"set statusline +=%3*%y%*                "file type
-"set statusline +=%4*\ %<%F%*            "full path
-"set statusline +=%2*%m%*                "modified flag
-"set statusline +=%1*%=%5l%*             "current line
-"set statusline +=%2*/%L%*               "total lines
-"set statusline +=%1*%4v\ %*             "virtual column number
-"set statusline +=%2*0x%04B\ %*          "character under cursor
+" Plugin config
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
-"hi CursorLine cterm=none ctermbg=darkred guibg=darkred
-"au InsertEnter * hi CursorLine cterm=none ctermbg=black guibg=black
-"au InsertLeave * hi CursorLine cterm=none ctermbg=darkred guibg=darkred
-"set cursorline
+let g:airline#extensions#tabline#enabled = 1
 
-"hi CursorLine cterm=underline guibg=#000000
-"au InsertEnter * hi CursorLine cterm=none ctermbg=black guibg=black
-"au InsertLeave * hi CursorLine cterm=underline ctermbg=none guibg=none
-"set cursorline
-
-"hi CursorLine cterm=none ctermbg=black guibg=black
-"au InsertEnter * hi CursorLine cterm=none ctermbg=none guibg=none
-"au InsertLeave * hi CursorLine cterm=none ctermbg=black guibg=black
-"set cursorline
-
+map <c-e> :VimFilerExplorer<CR>
