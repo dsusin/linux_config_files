@@ -69,6 +69,7 @@ set title
 set nowrap
 set tabstop=4
 set shiftwidth=4
+set expandtab
 set wildmenu
 set incsearch
 set nohlsearch
