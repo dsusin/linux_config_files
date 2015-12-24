@@ -115,6 +115,8 @@ let loaded_matchparen = 1
 " Plugin config
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 0
+noremap <C-h> :CtrlP ~<CR>
 
 let g:airline#extensions#tabline#enabled = 1
 
