@@ -18,6 +18,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimfiler.vim'
 Plugin 'bling/vim-airline'
+Plugin 'fatih/vim-go'
 " " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " " Git plugin not hosted on GitHub
